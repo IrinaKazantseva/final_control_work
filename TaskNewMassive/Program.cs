@@ -5,8 +5,16 @@ void FillArray(string[] array)
     for (int i = 0; i < array.Length; i++)
     {
         Console.Write("Введите новый элемент массива: ");
-        string A = Console.ReadLine();
-        array[i] = A;
+        string? A = Console.ReadLine();
+        if (String.IsNullOrEmpty(A))
+        {
+            array[i] = "null";
+            Console.WriteLine("Ошибка ввода. Это значение не будет учитываться при формировании итогового массива");
+        }
+        else
+        {
+            array[i] = A;
+        }
     }
 }
 
@@ -69,7 +77,7 @@ if (N > 0)
     else
     {
         Console.WriteLine();
-        Console.Write("Все введенные строки имеют длину более 3 символов");
+        Console.Write("Все введенные строки не соответствуют условию задачи");
     }
 
 }
