@@ -38,52 +38,60 @@ void PrintArray(string[] array)
 // Ввод первоначального массива с клавиатуры
 
 Console.WriteLine("Введите количество элементов массива: ");
-int N = Convert.ToInt32(Console.ReadLine());
-if (N > 0)
+try
 {
-    string[] array1 = new string[N];
-    FillArray(array1);
+    int N = Convert.ToInt32(Console.ReadLine());
 
-    // Вычисление длины нового массива
-
-    int NewArrayLength = 0;
-    for (int i = 0; i < array1.Length; i++)
+    if (N > 0)
     {
-        if (array1[i].Length <= 3)
-        {
-            NewArrayLength++;
-        }
-    }
+        string[] array1 = new string[N];
+        FillArray(array1);
 
-    // Формирование нового массива и вывод его на печать
-    // либо сообщение об отсутствии данных для формирования нового массива
+        // Вычисление длины нового массива
 
-    if (NewArrayLength > 0)
-    {
-        string[] NewArray = new string[NewArrayLength];
-
-        int index = 0;
+        int NewArrayLength = 0;
         for (int i = 0; i < array1.Length; i++)
         {
             if (array1[i].Length <= 3)
             {
-                NewArray[index] = array1[i];
-                index++;
+                NewArrayLength++;
             }
         }
-        Console.WriteLine();
-        PrintArray(NewArray);
-    }
-    else
-    {
-        Console.WriteLine();
-        Console.Write("Все введенные строки не соответствуют условию задачи");
+
+        // Формирование нового массива и вывод его на печать
+        // либо сообщение об отсутствии данных для формирования нового массива
+
+        if (NewArrayLength > 0)
+        {
+            string[] NewArray = new string[NewArrayLength];
+
+            int index = 0;
+            for (int i = 0; i < array1.Length; i++)
+            {
+                if (array1[i].Length <= 3)
+                {
+                    NewArray[index] = array1[i];
+                    index++;
+                }
+            }
+            Console.WriteLine();
+            PrintArray(NewArray);
+        }
+        else
+        {
+            Console.WriteLine();
+            Console.Write("Все введенные строки не соответствуют условию задачи");
+        }
     }
 
+    else
+    {
+        Console.Write("Укажите число больше нуля");
+    }
 }
-else
+catch (FormatException)
 {
-    Console.Write("Укажите число больше 0");
+    Console.Write("Вы ввели не число");
 }
 
 
