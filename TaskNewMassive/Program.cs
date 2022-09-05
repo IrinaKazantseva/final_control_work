@@ -5,15 +5,15 @@ void FillArray(string[] array)
     for (int i = 0; i < array.Length; i++)
     {
         Console.Write("Введите новый элемент массива: ");
-        string? A = Console.ReadLine();
-        if (String.IsNullOrEmpty(A))
+        string? element = Console.ReadLine();
+        if (String.IsNullOrEmpty(element))
         {
             array[i] = "null";
             Console.WriteLine("Ошибка ввода. Это значение не будет учитываться при формировании итогового массива");
         }
         else
         {
-            array[i] = A;
+            array[i] = element;
         }
     }
 }
@@ -31,51 +31,51 @@ void PrintArray(string[] array)
 
 // Первоначальный массив задан заранее
 
-//string[] array1 = { "Hello", "2", "world", ":-)" };
-//string[] array1 = { "1234", "1567", "-2", "computer science" };
-//string[] array1 = { "Russia", "Denmark", "Kazan" };
+//string[] originalArray = { "Hello", "2", "world", ":-)" };
+//string[] originalArray = { "1234", "1567", "-2", "computer science" };
+//string[] originalArray = { "Russia", "Denmark", "Kazan" };
 
 // Ввод первоначального массива с клавиатуры
 
 Console.WriteLine("Введите количество элементов массива: ");
 try
 {
-    int N = Convert.ToInt32(Console.ReadLine());
+    int number = Convert.ToInt32(Console.ReadLine());
 
-    if (N > 0)
+    if (number > 0)
     {
-        string[] array1 = new string[N];
-        FillArray(array1);
+        string[] originalArray = new string[number];
+        FillArray(originalArray);
 
         // Вычисление длины нового массива
 
-        int NewArrayLength = 0;
-        for (int i = 0; i < array1.Length; i++)
+        int newArrayLength = 0;
+        for (int i = 0; i < originalArray.Length; i++)
         {
-            if (array1[i].Length <= 3)
+            if (originalArray[i].Length <= 3)
             {
-                NewArrayLength++;
+                newArrayLength++;
             }
         }
 
         // Формирование нового массива и вывод его на консоль
         // либо сообщение об отсутствии данных для формирования нового массива
 
-        if (NewArrayLength > 0)
+        if (newArrayLength > 0)
         {
-            string[] NewArray = new string[NewArrayLength];
+            string[] newArray = new string[newArrayLength];
 
             int index = 0;
-            for (int i = 0; i < array1.Length; i++)
+            for (int i = 0; i < originalArray.Length; i++)
             {
-                if (array1[i].Length <= 3)
+                if (originalArray[i].Length <= 3)
                 {
-                    NewArray[index] = array1[i];
+                    newArray[index] = originalArray[i];
                     index++;
                 }
             }
             Console.WriteLine();
-            PrintArray(NewArray);
+            PrintArray(newArray);
         }
         else
         {
