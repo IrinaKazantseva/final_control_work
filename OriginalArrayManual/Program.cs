@@ -29,12 +29,6 @@ void PrintArray(string[] array)
     Console.Write(array[array.Length - 1] + "]");
 }
 
-// Первоначальный массив задан заранее
-
-//string[] originalArray = { "Hello", "2", "world", ":-)" };
-//string[] originalArray = { "1234", "1567", "-2", "computer science" };
-//string[] originalArray = { "Russia", "Denmark", "Kazan" };
-
 // Ввод первоначального массива с клавиатуры
 
 Console.WriteLine("Введите количество элементов массива: ");
