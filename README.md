@@ -21,6 +21,7 @@
 
 **![](https://github.com/IrinaKazantseva/final_control_work/blob/main/Final_Control_Work_Diagram.jpg?raw=true "Блок-схема для случая, когда массив задан изначально")**
 
+>также имеется [*крайне упрощенный вариант решения*](https://github.com/IrinaKazantseva/final_control_work/tree/main/Simple), в котором исходный массив задается на старте, а новый массив с длиной, равной длине оригинального массива, заполняется через цикл for и выводится на консоль.
 
 
 
